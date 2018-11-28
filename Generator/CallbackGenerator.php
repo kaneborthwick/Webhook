@@ -43,7 +43,7 @@ class CallbackGenerator implements CallbackGeneratorInterface {
 	/**
 	 * {@inheritdoc}
 	 */
-	public function generate($code, array $payload = []): array{
+	public function generate($code, $payload = null): array{
 
 		$webhook = $this->webhookProvider->getWebhook($code); // throws exception if not found
 		$callbacks = [];
