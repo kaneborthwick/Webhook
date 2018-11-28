@@ -19,7 +19,7 @@ class CallbackDispatcher implements CallbackDispatcherInterface {
 			$request->setMethod(Request::METHOD_POST);
 			$request->setUri($callback->getUrl());
 			$request->getHeaders()->addHeaders($callback->getHeader());
-			$request->setContent(json_encode($callback->getPayload())); // ?
+			$request->setContent($callback->getPayload());
 
 			// send the request
 			$client = new Client();
