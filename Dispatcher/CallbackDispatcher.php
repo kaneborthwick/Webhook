@@ -23,7 +23,7 @@ class CallbackDispatcher implements CallbackDispatcherInterface {
 
 			// send the request
 			$client = new Client();
-			$client->setOptions(['timeout' => 60]);
+			$client->setOptions(['timeout' => 0]);
 			$response = $client->send($request);
 
 			// return response - caller should handle

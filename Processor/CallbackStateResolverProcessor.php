@@ -21,6 +21,7 @@ class CallbackStateResolverProcessor implements CallbackProcessorInterface {
 
 		// if the time passed is beyond sensible, cancel the callback
 		$now = strtotime("-60 minutes");
+
 		if ($callback->getLastExecuted() && $now > $callback->getLastExecuted()->getTimestamp()) {
 			$callback->setStatus(CallbackInterface::STATE_CANCELLED);
 		}
