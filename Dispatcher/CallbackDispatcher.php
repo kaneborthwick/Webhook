@@ -29,6 +29,7 @@ class CallbackDispatcher implements CallbackDispatcherInterface {
 			// return response - caller should handle
 			return $response->isSuccess();
 		} catch (\Exception $e) {
+			$callback->setLastError($e->getMessage());
 			return false;
 		}
 	}

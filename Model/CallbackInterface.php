@@ -110,4 +110,18 @@ interface CallbackInterface extends TimestampableInterface {
 	 * @return [type] [description]
 	 */
 	public function canExecute();
+
+	/**
+	 * [getLastError description]
+	 * @return [type] [description]
+	 */
+	public function getLastError();
+
+	/**
+	 * [setLastError description]
+	 *
+	 * @param [type] $lastError [description]
+	 */
+	public function setLastError($lastError);
+
 }

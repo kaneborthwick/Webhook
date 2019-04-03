@@ -57,6 +57,13 @@ class Callback extends AbstractResourceItem implements CallbackInterface {
 	protected $status = CallbackInterface::STATE_PENDING;
 
 	/**
+	 * [$lastError description]
+	 *
+	 * @var [type]
+	 */
+	protected $lastError;
+
+	/**
 	 * [__construct description]
 	 */
 	public function __construct() {
@@ -186,6 +193,20 @@ class Callback extends AbstractResourceItem implements CallbackInterface {
 		$this->status = $status;
 
 		return $this;
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
+	public function getLastError() {
+		return $this->lastError;
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
+	public function setLastError($lastError) {
+		$this->lastError = $lastError;
 	}
 
 	/**
