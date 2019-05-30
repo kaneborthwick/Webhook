@@ -13,17 +13,19 @@ class CallbackDispatcher implements CallbackDispatcherInterface {
 	 */
 	public function dispatch(CallbackInterface $callback): bool {
 		try {
+
 			// create the request (POST)
 			// this class does handle * any * validation
 			$request = new Request();
 			$request->setMethod(Request::METHOD_POST);
 			$request->setUri($callback->getUrl());
 			$request->getHeaders()->addHeaders($callback->getHeader());
-			$request->setContent($callback->getPayload());
+			$request->setContent(json_encode($callback->getPayload()));
 
 			// send the request
 			$client = new Client();
-			$client->setOptions(['timeout' => 0]);
+			$client->setOptions(['timeout' => 60]);
+
 			$response = $client->send($request);
 
 			// return response - caller should handle
